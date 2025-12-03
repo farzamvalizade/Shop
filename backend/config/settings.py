@@ -185,6 +185,7 @@ REST_AUTH = {
 CSRF_TRUSTED_ORIGINS = [
     "moz-extension://e4de70c9-f18e-4cc1-88d3-660261e601ac",
     "https://zonal-compassion-production.up.railway.app",
+    "https://shop-ten-beta-farzam.vercel.app",
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
