@@ -10,7 +10,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
 
-
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -18,17 +17,19 @@ const Contact = () => {
     });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setResponseMessage(""); 
+    setResponseMessage("");
 
     try {
-      const response = await axios.post("http://localhost:8000/api/contact/", formData);
-      setResponseMessage(response.data.message); 
-      console.log(formData)
-      setIsSubmitting(false); 
+      const response = await axios.post(
+        "http://zonal-compassion-production.up.railway.app/api/contact/",
+        formData,
+      );
+      setResponseMessage(response.data.message);
+      console.log(formData);
+      setIsSubmitting(false);
     } catch {
       setResponseMessage("خطایی در ارسال پیام رخ داده است.");
       setIsSubmitting(false);
@@ -43,16 +44,16 @@ const Contact = () => {
             ارتباط با ما
           </h1>
           <p className="text-lg text-gray-600 mt-4 max-w-xl mx-auto leading-relaxed">
-            سوالی دارید؟ از طریق فرم زیر با ما در ارتباط باشید یا از راه‌های دیگر پیام بدهید.
+            سوالی دارید؟ از طریق فرم زیر با ما در ارتباط باشید یا از راه‌های
+            دیگر پیام بدهید.
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <form
-            className="p-8 rounded-3xl space-y-6"
-            onSubmit={handleSubmit}
-          >
+          <form className="p-8 rounded-3xl space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label className="block text-gray-700 font-bold mb-2">نام شما</label>
+              <label className="block text-gray-700 font-bold mb-2">
+                نام شما
+              </label>
               <input
                 type="text"
                 name="name"
@@ -63,7 +64,9 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-bold mb-2">ایمیل</label>
+              <label className="block text-gray-700 font-bold mb-2">
+                ایمیل
+              </label>
               <input
                 type="email"
                 name="email"
@@ -94,19 +97,20 @@ const Contact = () => {
           </form>
 
           {responseMessage && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
-              <button
-                className="absolute top-2 left-2 text-gray-600 hover:text-gray-900"
-                onClick={() => setResponseMessage("")}
-              >
-                <i className="fas fa-times fa-lg mt-3 ml-2"></i>
-              </button>
-              <h2 className="text-lg font-semibold mb-4">{responseMessage}</h2>
-
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
+                <button
+                  className="absolute top-2 left-2 text-gray-600 hover:text-gray-900"
+                  onClick={() => setResponseMessage("")}
+                >
+                  <i className="fas fa-times fa-lg mt-3 ml-2"></i>
+                </button>
+                <h2 className="text-lg font-semibold mb-4">
+                  {responseMessage}
+                </h2>
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
           {/* اطلاعات تماس */}
           <div className="space-y-8 text-right">
@@ -114,7 +118,9 @@ const Contact = () => {
               <i className="fas fa-phone-alt text-purple-500 text-3xl"></i>
               <div>
                 <h3 className="text-lg font-bold">شماره تماس</h3>
-                <p className="text-gray-600" dir="ltr">+98 912 123 4567</p>
+                <p className="text-gray-600" dir="ltr">
+                  +98 912 123 4567
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-4">

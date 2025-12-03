@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
 const EditUserInfo = () => {
-  const [fileName, setFileName] = useState('');
+  const [fileName, setFileName] = useState("");
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -13,21 +13,23 @@ const EditUserInfo = () => {
     bio: "",
     profile_picture: null,
   });
-  const [lastUserData, setLastUserData] = useState(null); 
+  const [lastUserData, setLastUserData] = useState(null);
   const [message, setMessage] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/user/", {
-          headers: {
-            Authorization: `Bearer ${Cookies.get("access")}`,
+        const response = await axios.get(
+          "http://zonal-compassion-production.up.railway.app/api/user/",
+          {
+            headers: {
+              Authorization: `Bearer ${Cookies.get("access")}`,
+            },
           },
-        });
-        const userData = response.data[0]; 
-  
+        );
+        const userData = response.data[0];
+
         setLastUserData(userData);
-  
 
         setFormData({
           username: userData.username || "",
@@ -35,18 +37,17 @@ const EditUserInfo = () => {
           phone_number: userData.phone_number || "",
           address: userData.address || "",
           bio: userData.bio || "",
-          profile_picture: null, 
+          profile_picture: null,
         });
-  
-        console.log(userData); 
+
+        console.log(userData);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
     };
-  
+
     fetchUserData();
   }, []);
-  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -75,14 +76,14 @@ const EditUserInfo = () => {
 
     try {
       const response = await axios.patch(
-        "http://localhost:8000/api/user/update-info/",
+        "http://zonal-compassion-production.up.railway.app/api/user/update-info/",
         data,
         {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${Cookies.get("access")}`,
           },
-        }
+        },
       );
       setMessage("اطلاعات با موفقیت به‌روزرسانی شد.");
       console.log(response);
@@ -94,10 +95,15 @@ const EditUserInfo = () => {
 
   return (
     <div className="max-w-2xl mx-auto  rounded-xl p-8 mt-10 ">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">ویرایش اطلاعات کاربری</h2>
+      <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
+        ویرایش اطلاعات کاربری
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="username" className="text-base block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="username"
+            className="text-base block text-sm font-medium text-gray-700 mb-2"
+          >
             نام کاربری
           </label>
           <input
@@ -111,7 +117,10 @@ const EditUserInfo = () => {
         </div>
 
         <div>
-          <label htmlFor="email" className="text-base block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="email"
+            className="text-base block text-sm font-medium text-gray-700 mb-2"
+          >
             ایمیل
           </label>
           <input
@@ -125,7 +134,10 @@ const EditUserInfo = () => {
         </div>
 
         <div>
-          <label htmlFor="phone_number" className="text-base block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="phone_number"
+            className="text-base block text-sm font-medium text-gray-700 mb-2"
+          >
             شماره تلفن
           </label>
           <input
@@ -139,7 +151,10 @@ const EditUserInfo = () => {
         </div>
 
         <div>
-          <label htmlFor="address" className="text-base block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="address"
+            className="text-base block text-sm font-medium text-gray-700 mb-2"
+          >
             آدرس
           </label>
           <input
@@ -153,7 +168,10 @@ const EditUserInfo = () => {
         </div>
 
         <div>
-          <label htmlFor="bio" className="text-base block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="bio"
+            className="text-base block text-sm font-medium text-gray-700 mb-2"
+          >
             بیوگرافی
           </label>
           <textarea
@@ -178,12 +196,25 @@ const EditUserInfo = () => {
               type="button"
               className="py-2 px-4 bg-indigo-600 text-white text-sm rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition duration-200 ease-in-out flex items-center space-x-2"
             >
-              <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7l10 10m0-10L7 17" />
+              <svg
+                className="w-4 h-4"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M7 7l10 10m0-10L7 17"
+                />
               </svg>
               <span className="text-base">انتخاب عکس پروفایل</span>
             </button>
-            {fileName && <p className="mt-2 text-sm text-gray-500">{fileName}</p>}
+            {fileName && (
+              <p className="mt-2 text-sm text-gray-500">{fileName}</p>
+            )}
           </div>
         </div>
 
@@ -197,19 +228,18 @@ const EditUserInfo = () => {
         </div>
       </form>
       {message && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
-              <button
-                className="absolute top-2 left-2 text-gray-600 hover:text-gray-900"
-                onClick={() => setMessage("")}
-              >
-                <i className="fas fa-times fa-lg mt-3 ml-2"></i>
-              </button>
-              <h2 className="text-lg font-semibold mb-4">{message}</h2>
-
-            </div>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
+            <button
+              className="absolute top-2 left-2 text-gray-600 hover:text-gray-900"
+              onClick={() => setMessage("")}
+            >
+              <i className="fas fa-times fa-lg mt-3 ml-2"></i>
+            </button>
+            <h2 className="text-lg font-semibold mb-4">{message}</h2>
           </div>
-        )}
+        </div>
+      )}
     </div>
   );
 };

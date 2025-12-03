@@ -5,19 +5,22 @@ import "./assets/css/reset.css";
 const PasswordResetConfirmation = () => {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [email,setEmail] = useState("")
+  const [email, setEmail] = useState("");
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('email'));
+    const items = JSON.parse(localStorage.getItem("email"));
     if (items) {
-     setEmail(items);
+      setEmail(items);
     }
   }, []);
   const handleClick = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8000/api/auth/password/reset/", {
-        email: email , 
-      });
+      const response = await axios.post(
+        "http://zonal-compassion-production.up.railway.app/api/auth/password/reset/",
+        {
+          email: email,
+        },
+      );
       console.log("ایمیل دوباره ارسال شد:", response.data);
       setShow(true);
     } catch (error) {
@@ -34,11 +37,13 @@ const PasswordResetConfirmation = () => {
   return (
     <div className="flex items-center justify-center w-full h-screen bg-cover bg-center bg-no-repeat main">
       <div className="bg-transparent border-2 border-white/50 rounded-lg p-8 backdrop-blur-md w-full max-w-md flex flex-col items-center md:w-2/4 lg:h-80">
-        <h1 className="text-2xl text-white text-center mb-4">ایمیل ارسال شد!</h1>
+        <h1 className="text-2xl text-white text-center mb-4">
+          ایمیل ارسال شد!
+        </h1>
         <p className="text-white text-center mb-3 mt-4">
-          ایمیلی حاوی لینک تغییر رمز عبور به آدرس شما ارسال شد. لطفاً صندوق ورودی خود
-          را بررسی کنید. اگر ایمیلی دریافت نکردید، پوشه اسپم را چک کنید یا
-          دوباره تلاش کنید.
+          ایمیلی حاوی لینک تغییر رمز عبور به آدرس شما ارسال شد. لطفاً صندوق
+          ورودی خود را بررسی کنید. اگر ایمیلی دریافت نکردید، پوشه اسپم را چک
+          کنید یا دوباره تلاش کنید.
         </p>
         <div className="grid grid-cols-2 gap-4 w-full">
           <button
@@ -66,11 +71,13 @@ const PasswordResetConfirmation = () => {
             >
               <i className="fas fa-times fa-lg mt-3 ml-2"></i>
             </button>
-            <h2 className="text-lg font-semibold mb-4">ایمیل دوباره ارسال شد</h2>
+            <h2 className="text-lg font-semibold mb-4">
+              ایمیل دوباره ارسال شد
+            </h2>
             <p className="mb-4">
-              ایمیلی حاوی لینک تغییر رمز عبور دوباره به آدرس شما ارسال شد. لطفاً صندوق ورودی خود
-              را بررسی کنید. اگر ایمیلی دریافت نکردید، پوشه اسپم را چک کنید یا
-              دوباره تلاش کنید.
+              ایمیلی حاوی لینک تغییر رمز عبور دوباره به آدرس شما ارسال شد. لطفاً
+              صندوق ورودی خود را بررسی کنید. اگر ایمیلی دریافت نکردید، پوشه اسپم
+              را چک کنید یا دوباره تلاش کنید.
             </p>
           </div>
         </div>
