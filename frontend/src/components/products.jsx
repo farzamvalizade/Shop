@@ -15,7 +15,7 @@ function ProductsList({ title }) {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/api/products");
+                const response = await axios.get("http://zonal-compassion-production.up.railway.app/api/products");
                 setProducts(response.data);
             } catch (error) {
                 console.error("Error fetching products:", error);
