@@ -28,7 +28,12 @@ SECRET_KEY = "django-insecure-8t+0t-(5-$y-#!d@u6hf!4*&g@x7oyjae8mhv(n&&rd&7gc6$8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "zonal-compassion-production.up.railway.app"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "zonal-compassion-production.up.railway.app",
+    "shop-ten-beta-farzam.vercel.app",
+]
 
 
 # Application definition
