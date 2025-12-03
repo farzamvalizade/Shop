@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-8t+0t-(5-$y-#!d@u6hf!4*&g@x7oyjae8mhv(n&&rd&7gc6$8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "zonal-compassion-production.up.railway.app"]
 
 
 # Application definition
@@ -182,7 +182,10 @@ REST_AUTH = {
     "JWT_AUTH_COOKIE": "access",
     "JWT_AUTH_REFRESH_COOKIE": "refresh",
 }
-CSRF_TRUSTED_ORIGINS = ["moz-extension://e4de70c9-f18e-4cc1-88d3-660261e601ac"]
+CSRF_TRUSTED_ORIGINS = [
+    "moz-extension://e4de70c9-f18e-4cc1-88d3-660261e601ac",
+    "https://zonal-compassion-production.up.railway.app",
+]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
