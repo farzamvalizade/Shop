@@ -17,9 +17,6 @@ inflection==0.5.1
 packaging==24.2
 pillow==11.1.0
 PyJWT==2.10.1
-PyQt6==6.7.1
-PyQt6-Qt6==6.7.3
-PyQt6_sip==13.8.0
 pytz==2024.2
 PyYAML==6.0.2
 requests==2.32.3
@@ -28,3 +25,7 @@ sqlparse==0.5.1
 uritemplate==4.1.1
 urllib3==2.2.3
 wheel==0.44.0
+gunicorn
+dj-database-url
+psycopg2-binary
+whitenoise
