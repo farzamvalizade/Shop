@@ -24,7 +24,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-        "http://zonal-compassion-production.up.railway.app/api/contact/",
+        "https://zonal-compassion-production.up.railway.app/api/contact/",
         formData,
       );
       setResponseMessage(response.data.message);

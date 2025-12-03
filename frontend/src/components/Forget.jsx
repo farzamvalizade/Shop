@@ -42,7 +42,7 @@ const ForgetPassword = () => {
       setErrors({});
       console.log("Form Data before request:", formData); // لاگ کردن فرم
       const response = await axios.post(
-        "http://zonal-compassion-production.up.railway.app/api/auth/password/reset/",
+        "https://zonal-compassion-production.up.railway.app/api/auth/password/reset/",
         { email: formData.email },
       );
 

@@ -11,7 +11,7 @@ const Cart = () => {
       try {
         const token = Cookies.get("access");
         const response = await axios.get(
-          "http://zonal-compassion-production.up.railway.app/api/cart-items/",
+          "https://zonal-compassion-production.up.railway.app/api/cart-items/",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ const Cart = () => {
     for (const item of items) {
       try {
         const res = await axios.get(
-          `http://zonal-compassion-production.up.railway.app/api/products/${item.product}/`,
+          `https://zonal-compassion-production.up.railway.app/api/products/${item.product}/`,
         );
         productData[item.product] = res.data;
       } catch (error) {
@@ -53,7 +53,7 @@ const Cart = () => {
     try {
       const token = Cookies.get("access");
       await axios.patch(
-        `http://zonal-compassion-production.up.railway.app/api/cart-items/${itemId}/`,
+        `https://zonal-compassion-production.up.railway.app/api/cart-items/${itemId}/`,
         {
           quantity: newQuantity,
         },
@@ -78,7 +78,7 @@ const Cart = () => {
     try {
       const token = Cookies.get("access");
       await axios.delete(
-        `http://zonal-compassion-production.up.railway.app/api/cart-items/${itemId}/`,
+        `https://zonal-compassion-production.up.railway.app/api/cart-items/${itemId}/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

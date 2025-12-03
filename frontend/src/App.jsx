@@ -42,7 +42,7 @@ function AppContent() {
 
     try {
       await axios.post(
-        "http://zonal-compassion-production.up.railway.app/api/auth/token/verify/",
+        "https://zonal-compassion-production.up.railway.app/api/auth/token/verify/",
         {
           token: accessToken,
         },
@@ -63,7 +63,7 @@ function AppContent() {
     }
     try {
       const response = await axios.post(
-        "http://zonal-compassion-production.up.railway.app/api/auth/token/refresh/",
+        "https://zonal-compassion-production.up.railway.app/api/auth/token/refresh/",
         {
           refresh: refreshToken,
         },

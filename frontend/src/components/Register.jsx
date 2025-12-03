@@ -84,7 +84,7 @@ const SignUp = () => {
       setErrors({});
 
       await axios.post(
-        "http://zonal-compassion-production.up.railway.app/api/account/create/",
+        "https://zonal-compassion-production.up.railway.app/api/account/create/",
         formData,
       );
 

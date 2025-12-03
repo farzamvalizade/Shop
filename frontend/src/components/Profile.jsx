@@ -19,7 +19,7 @@ const UserProfile = () => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://zonal-compassion-production.up.railway.app/api/auth/logout/",
+        "https://zonal-compassion-production.up.railway.app/api/auth/logout/",
         {},
         {
           body: {
@@ -49,7 +49,7 @@ const UserProfile = () => {
     }
     try {
       await axios.post(
-        "http://zonal-compassion-production.up.railway.app/api/auth/token/verify/",
+        "https://zonal-compassion-production.up.railway.app/api/auth/token/verify/",
         {
           token: accessToken,
         },
@@ -72,7 +72,7 @@ const UserProfile = () => {
     }
     try {
       const response = await axios.post(
-        "http://zonal-compassion-production.up.railway.app/api/auth/token/refresh/",
+        "https://zonal-compassion-production.up.railway.app/api/auth/token/refresh/",
         {
           refresh: refreshToken,
         },
@@ -88,7 +88,7 @@ const UserProfile = () => {
   const getUserInfo = async () => {
     try {
       const response = await axios.get(
-        "http://zonal-compassion-production.up.railway.app/api/user/",
+        "https://zonal-compassion-production.up.railway.app/api/user/",
         {
           headers: {
             Authorization: `Bearer ${Cookies.get("access")}`,
@@ -106,7 +106,7 @@ const UserProfile = () => {
   const getDateJoined = async () => {
     try {
       const response = await axios.get(
-        "http://zonal-compassion-production.up.railway.app/api/user/date-joined",
+        "https://zonal-compassion-production.up.railway.app/api/user/date-joined",
         {
           headers: {
             Authorization: `Bearer ${Cookies.get("access")}`,

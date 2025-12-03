@@ -20,7 +20,7 @@ const EditUserInfo = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          "http://zonal-compassion-production.up.railway.app/api/user/",
+          "https://zonal-compassion-production.up.railway.app/api/user/",
           {
             headers: {
               Authorization: `Bearer ${Cookies.get("access")}`,
@@ -76,7 +76,7 @@ const EditUserInfo = () => {
 
     try {
       const response = await axios.patch(
-        "http://zonal-compassion-production.up.railway.app/api/user/update-info/",
+        "https://zonal-compassion-production.up.railway.app/api/user/update-info/",
         data,
         {
           headers: {

@@ -14,7 +14,7 @@ const CategoryProducts = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `http://zonal-compassion-production.up.railway.app/api/products/?category__slug=${category}`,
+          `https://zonal-compassion-production.up.railway.app/api/products/?category__slug=${category}`,
         );
         const fetchedProducts = response.data;
         setProducts(response.data);

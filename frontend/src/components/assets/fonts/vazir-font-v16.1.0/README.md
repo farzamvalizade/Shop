@@ -108,4 +108,3 @@ Use your favourite [AUR helper](https://wiki.archlinux.org/index.php/AUR_helpers
 ```shell
 pacaur -S vazir-fonts
 ```
-

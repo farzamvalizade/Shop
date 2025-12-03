@@ -16,7 +16,7 @@ const PasswordResetConfirmation = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://zonal-compassion-production.up.railway.app/api/auth/password/reset/",
+        "https://zonal-compassion-production.up.railway.app/api/auth/password/reset/",
         {
           email: email,
         },

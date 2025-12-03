@@ -57,7 +57,7 @@ const Login = () => {
       setServerError(""); // Clear server errors
 
       const response = await axios.post(
-        "http://zonal-compassion-production.up.railway.app/api/auth/login/",
+        "https://zonal-compassion-production.up.railway.app/api/auth/login/",
         formData,
       );
       console.log(response);

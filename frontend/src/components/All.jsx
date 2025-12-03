@@ -12,7 +12,7 @@ const AllProduct = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://zonal-compassion-production.up.railway.app/api/products/",
+          "https://zonal-compassion-production.up.railway.app/api/products/",
         );
         setProducts(response.data);
       } catch (error) {
@@ -40,7 +40,7 @@ const AllProduct = () => {
 
     try {
       const cartResponse = await axios.get(
-        "http://zonal-compassion-production.up.railway.app/api/cart-items/",
+        "https://zonal-compassion-production.up.railway.app/api/cart-items/",
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -60,7 +60,7 @@ const AllProduct = () => {
         };
 
         const updateResponse = await axios.patch(
-          `http://zonal-compassion-production.up.railway.app/api/cart-items/${existingItem.id}/`,
+          `https://zonal-compassion-production.up.railway.app/api/cart-items/${existingItem.id}/`,
           updatedItem,
           {
             headers: {
@@ -78,7 +78,7 @@ const AllProduct = () => {
         };
 
         const addResponse = await axios.post(
-          "http://zonal-compassion-production.up.railway.app/api/cart-items/",
+          "https://zonal-compassion-production.up.railway.app/api/cart-items/",
           cartItem,
           {
             headers: {
